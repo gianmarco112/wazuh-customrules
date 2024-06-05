@@ -103,13 +103,14 @@
   - **Code**
       ```xml
         <group name="windows, event logs,">
-						<rule id="100009" level="10">
-					        <if_sid>60000,60001,60017,60103</if_sid>
-					        <field name="win.system.eventID">^4628$</field>
-					        <description>A logon was attempted using explicit credentials</description>
-						</rule>
+            <rule id="100009" level="10">
+                 <if_sid>60000,60001,60017,60103</if_sid>
+                 <field name="win.system.eventID">^4628$</field>
+                 <description>A logon was attempted using explicit credentials</description>
+            </rule>
         </group>
        ```
+
 ## ⌚Timeframe Check
 ### How Timeframe Works
 
