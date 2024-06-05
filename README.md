@@ -38,33 +38,78 @@
   - **Level:** 10
   - **Condition:** If SIDs match 60000,60001,60017,60103 and Windows system event ID matches 4802
   - **Description:** Windows screensaver invoked
-
+  - **Code**
+      ```xml
+        <group name="windows, event logs, unlock,">
+            <rule id="100005" level="10">
+                <if_sid>60000,60001,60017,60103</if_sid>
+                <field name="win.system.eventID">^4802$</field>
+                <description>Windows screensaver invoked</description>
+            </rule>
+        </group>
+       ```
 - **Rule ID:** 100006
   - **Group:** windows, event logs
   - **Level:** 10
   - **Condition:** If SIDs match 60000,60001,60017,60103 and Windows system event ID matches 4803
   - **Description:** Windows screensaver dismissed
-
+  - **Code**
+      ```xml
+        <group name="windows, event logs,">
+            <rule id="100006" level="10">
+                <if_sid>60000,60001,60017,60103</if_sid>
+                <field name="win.system.eventID">^4803$</field>
+                <description>Windows screensaver dismissed</description>
+            </rule>
+        </group>
+       ```
 ## System ⏸Suspension and 🕐Time Change Events
 - **Rule ID:** 100007
   - **Group:** windows, event logs
   - **Level:** 10
   - **Condition:** If SIDs match 60000,60002,60007,61100 and Windows system event ID matches 42
   - **Description:** System suspension activation in progress
-
+  - **Code**
+      ```xml
+        <group name="windows, event logs,">
+            <rule id="100007" level="10">
+                 <if_sid>60000,60002,60007,61100</if_sid>
+                 <field name="win.system.eventID">^42$</field>
+                 <description>Attivazione della sospensione del sistema in corso</description>
+            </rule>
+        </group>
+       ```
 - **Rule ID:** 100008
   - **Group:** windows, event logs
   - **Level:** 10
   - **Condition:** If SIDs match 60000,60002,60007,61100 and Windows system event ID matches 1
   - **Description:** System time has been modified
-
+  - **Code**
+      ```xml
+        <group name="windows, event logs,">
+      			<rule id="100008" level="10">
+				        <if_sid>60000,60002,60007,61100</if_sid>
+				        <field name="win.system.eventID">^1$</field>
+				        <description>L'ora di sistema è stata modificata</description>
+				    </rule>
+        </group>
+       ```
 ## 🔑Logon Attempt Event
 - **Rule ID:** 100009
   - **Group:** windows, event logs
   - **Level:** 10
   - **Condition:** If SIDs match 60000,60001,60017,60103 and Windows system event ID matches 4628
   - **Description:** A logon was attempted using explicit credentials
-
+  - **Code**
+      ```xml
+        <group name="windows, event logs,">
+      				<rule id="100009" level="10">
+						        <if_sid>60000,60001,60017,60103</if_sid>
+						        <field name="win.system.eventID">^4628$</field>
+						        <description>A logon was attempted using explicit credentials</description>
+    					</rule>
+        </group>
+       ```
 ## ⌚Timeframe Check
 ### How Timeframe Works
 
