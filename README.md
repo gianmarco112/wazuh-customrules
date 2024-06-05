@@ -87,11 +87,11 @@
   - **Code**
       ```xml
         <group name="windows, event logs,">
-              <rule id="100008" level="10">
+      			<rule id="100008" level="10">
                 <if_sid>60000,60002,60007,61100</if_sid>
                 <field name="win.system.eventID">^1$</field>
-      <description>L'ora di sistema è stata modificata</description>
-               </rule>
+      					<description>L'ora di sistema è stata modificata</description>
+      			</rule>
         </group>
        ```
 ## 🔑Logon Attempt Event
@@ -103,11 +103,11 @@
   - **Code**
       ```xml
         <group name="windows, event logs,">
-      				<rule id="100009" level="10">
-						        <if_sid>60000,60001,60017,60103</if_sid>
-						        <field name="win.system.eventID">^4628$</field>
-						        <description>A logon was attempted using explicit credentials</description>
-    					</rule>
+      			<rule id="100009" level="10">
+							   <if_sid>60000,60001,60017,60103</if_sid>
+								 <field name="win.system.eventID">^4628$</field>
+								 <description>A logon was attempted using explicit credentials</description>
+  					</rule>
         </group>
        ```
 ## ⌚Timeframe Check
