@@ -1,5 +1,5 @@
 
-# Cute Wazuh Rules
+# Custom Wazuh Rules
 
 ## Lock and Unlock Events
 - **Rule ID:** 100003
