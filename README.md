@@ -48,6 +48,16 @@
   - **Description:** A logon was attempted using explicit credentials
 
 ## Timeframe Check
+### How Timeframe Works
+
+The `timeframe` attribute in Wazuh rules specifies a period (in seconds) during which certain events must occur in sequence to trigger an alert. For instance, in rules 100010 and 100011:
+
+- **Rule 100010**: This rule checks if a workstation was unlocked (event with ID 100004) within 30 seconds after it was locked (event with ID 100003). If this sequence of events occurs within the specified timeframe, the rule triggers an alert indicating that the workstation was unlocked after 30 seconds.
+- **Rule 100011**: Similar to rule 100010, but with a timeframe of 60 seconds. It checks if the workstation was unlocked within 60 seconds after being locked.
+
+These timeframe rules are useful for monitoring specific sequences of events within a defined period, allowing for more granular and contextual alerts.
+
+###Rules
 - **Rule ID:** 100010
   - **Group:** timeframecheck
   - **Level:** 10
@@ -61,3 +71,6 @@
   - **Timeframe:** 60 seconds
   - **Condition:** If Rule ID 100004 is matched within 60 seconds of Rule ID 100003
   - **Description:** Workstation unlocked after 60 seconds
+##Interesting rules logic
+If a rule triggers another rule it will not be displayed
+If none of the underlying rules are triggered, the alert for this rule will be displayed.
