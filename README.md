@@ -40,7 +40,7 @@
   - **Description:** Windows screensaver invoked
   - **Code**
       ```xml
-        <group name="windows, event logs, unlock,">
+        <group name="windows, event logs,">
             <rule id="100005" level="10">
                 <if_sid>60000,60001,60017,60103</if_sid>
                 <field name="win.system.eventID">^4802$</field>
