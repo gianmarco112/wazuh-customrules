@@ -1,0 +1,56 @@
+<!-- Modify it at your will. -->
+<group name="windows, event logs, lock,">
+ <!-- Regola per Blocco della Workstation -->
+    <rule id="100003" level="10">
+        <if_sid>60000,60001,60017,60103</if_sid>
+        <field name="win.system.eventID">^4800$</field>
+        <description>Windows workstation locked</description>
+    </rule>
+</group>
+<group name="windows, event logs, unlock,">
+    <rule id="100004" level="10">
+        <if_sid>60000,60001,60017,60103</if_sid>
+        <field name="win.system.eventID">^4801$</field>
+        <description>Windows workstation unlocked</description>
+    </rule>
+</group>
+<group name="windows, event logs,">
+    <rule id="100005" level="10">
+        <if_sid>60000,60001,60017,60103</if_sid>
+        <field name="win.system.eventID">^4802$</field>
+        <description>Windows screensaver invoked</description>
+    </rule>
+    <rule id="100006" level="10">
+        <if_sid>60000,60001,60017,60103</if_sid>
+        <field name="win.system.eventID">^4803$</field>
+        <description>Windows screensaver dismissed</description>
+    </rule>
+    <rule id="100007" level="10">
+        <if_sid>60000,60002,60007,61100</if_sid>
+        <field name="win.system.eventID">^42$</field>
+        <description>Attivazione della sospensione del sistema in corso</description>
+    </rule>
+    <rule id="100008" level="10">
+        <if_sid>60000,60002,60007,61100</if_sid>
+        <field name="win.system.eventID">^1$</field>
+        <description>L'ora di sistema è stata modificata</description>
+    </rule>
+
+    <rule id="100009" level="10">
+        <if_sid>60000,60001,60017,60103</if_sid>
+        <field name="win.system.eventID">^4628$</field>
+        <description>A logon was attempted using explicit credentials</description>
+    </rule>
+</group>
+<group name="timeframecheck,">
+    <rule id="100010" level="10" timeframe="30">
+        <if_sid>100004</if_sid>
+        <if_matched_sid>100003</if_matched_sid>
+        <description>Workstation unlocked after 30 seconds</description>
+    </rule>
+    <rule id="100011" level="10" timeframe="60">
+        <if_sid>100004</if_sid>
+        <if_matched_sid>100003</if_matched_sid>
+        <description>Workstation unlocked after 60 seconds</description>
+    </rule>
+</group>
