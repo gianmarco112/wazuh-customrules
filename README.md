@@ -1,7 +1,7 @@
 
 # Custom Wazuh Rules
 
-## Lock and Unlock Events
+## 🔒Lock and 🔓Unlock Events 
 - **Rule ID:** 100003
   - **Group:** windows, event logs, lock
   - **Level:** 10
@@ -14,7 +14,7 @@
   - **Condition:** If SIDs match 60000,60001,60017,60103 and Windows system event ID matches 4801
   - **Description:** Windows workstation unlocked
 
-## Screensaver Events
+## 🖼Screensaver Events
 - **Rule ID:** 100005
   - **Group:** windows, event logs
   - **Level:** 10
@@ -27,7 +27,7 @@
   - **Condition:** If SIDs match 60000,60001,60017,60103 and Windows system event ID matches 4803
   - **Description:** Windows screensaver dismissed
 
-## System Suspension and Time Change Events
+## System ⏸Suspension and 🕐Time Change Events
 - **Rule ID:** 100007
   - **Group:** windows, event logs
   - **Level:** 10
@@ -40,14 +40,14 @@
   - **Condition:** If SIDs match 60000,60002,60007,61100 and Windows system event ID matches 1
   - **Description:** System time has been modified
 
-## Logon Attempt Event
+## 🔑Logon Attempt Event
 - **Rule ID:** 100009
   - **Group:** windows, event logs
   - **Level:** 10
   - **Condition:** If SIDs match 60000,60001,60017,60103 and Windows system event ID matches 4628
   - **Description:** A logon was attempted using explicit credentials
 
-## Timeframe Check
+## ⌚Timeframe Check
 ### How Timeframe Works
 
 The `timeframe` attribute in Wazuh rules specifies a period (in seconds) during which certain events must occur in sequence to trigger an alert. For instance, in rules 100010 and 100011:
@@ -57,7 +57,7 @@ The `timeframe` attribute in Wazuh rules specifies a period (in seconds) during 
 
 These timeframe rules are useful for monitoring specific sequences of events within a defined period, allowing for more granular and contextual alerts.
 
-###Rules
+### Rules
 - **Rule ID:** 100010
   - **Group:** timeframecheck
   - **Level:** 10
@@ -71,6 +71,8 @@ These timeframe rules are useful for monitoring specific sequences of events wit
   - **Timeframe:** 60 seconds
   - **Condition:** If Rule ID 100004 is matched within 60 seconds of Rule ID 100003
   - **Description:** Workstation unlocked after 60 seconds
-##Interesting rules logic
-If a rule triggers another rule it will not be displayed
-If none of the underlying rules are triggered, the alert for this rule will be displayed.
+  
+## Interesting rules logic
+- If a rule triggers another rule it will not be displayed.
+- If none of the underlying rules are triggered, the alert for this rule will be displayed.
+- If two rules have the same triggers wins the first match order by id.
