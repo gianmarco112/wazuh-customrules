@@ -1,4 +1,4 @@
-```markdown
+
 # Cute Wazuh Rules
 
 ## Lock and Unlock Events
@@ -61,4 +61,3 @@
   - **Timeframe:** 60 seconds
   - **Condition:** If Rule ID 100004 is matched within 60 seconds of Rule ID 100003
   - **Description:** Workstation unlocked after 60 seconds
-```
