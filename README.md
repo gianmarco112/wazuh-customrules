@@ -75,7 +75,7 @@
             <rule id="100007" level="10">
                  <if_sid>60000,60002,60007,61100</if_sid>
                  <field name="win.system.eventID">^42$</field>
-                 <description>Attivazione della sospensione del sistema in corso</description>
+                 <description>System suspension activation in progress</description>
             </rule>
         </group>
        ```
@@ -87,11 +87,11 @@
   - **Code**
       ```xml
         <group name="windows, event logs,">
-	    			<rule id="100008" level="10">
-									<if_sid>60000,60002,60007,61100</if_sid>
-									<field name="win.system.eventID">^1$</field>
-									<description>L'ora di sistema è stata modificata</description>
-				    </rule>
+            <rule id="100008" level="10">
+                 <if_sid>60000,60002,60007,61100</if_sid>
+                 <field name="win.system.eventID">^1$</field>
+                 <description>System time has been modified</description>
+            </rule>
         </group>
        ```
 ## 🔑Logon Attempt Event
