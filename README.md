@@ -7,13 +7,31 @@
   - **Level:** 10
   - **Condition:** If Security IDs (SIDs) match 60000,60001,60017,60103 and Windows system event ID matches 4800
   - **Description:** Windows workstation locked
-
+  - **Code**
+      ```xml
+        <group name="windows, event logs, lock,">
+            <rule id="100003" level="10">
+                <if_sid>60000,60001,60017,60103</if_sid>
+                <field name="win.system.eventID">^4800$</field>
+                <description>Windows workstation locked</description>
+            </rule>
+        </group>
+       ```
 - **Rule ID:** 100004
   - **Group:** windows, event logs, unlock
   - **Level:** 10
   - **Condition:** If SIDs match 60000,60001,60017,60103 and Windows system event ID matches 4801
   - **Description:** Windows workstation unlocked
-
+  - **Code**
+      ```xml
+        <group name="windows, event logs, unlock,">
+            <rule id="100004" level="10">
+                <if_sid>60000,60001,60017,60103</if_sid>
+                <field name="win.system.eventID">^4801$</field>
+                <description>Windows workstation unlocked</description>
+            </rule>
+        </group>
+       ```
 ## 🖼Screensaver Events
 - **Rule ID:** 100005
   - **Group:** windows, event logs
