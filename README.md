@@ -112,6 +112,8 @@
        ```
 
 ## ⌚Timeframe Check
+### ⚠BIG DESIGN ISSUE⚠
+⚠⚠ Wazuh manager has a default analysysd cache of 8192 events that it browses to chech the timeframe rules ⚠⚠
 ### How Timeframe Works
 
 The `timeframe` attribute in Wazuh rules specifies a period (in seconds) during which certain events must occur in sequence to trigger an alert. For instance, in rules 100010 and 100011:
