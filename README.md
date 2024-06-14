@@ -143,7 +143,7 @@ These timeframe rules are useful for monitoring specific sequences of events wit
 - If none of the underlying rules are triggered, the alert for this rule will be displayed.
 - If two rules have the same triggers wins the first match order by id.
 
-
+# Visualizations to create dashboards
 ## Creating Dashboards with Tag Clouds
 
 To visualize the latest event or value of a field in a Wazuh dashboard using a tag cloud, follow these steps:
@@ -178,5 +178,32 @@ To visualize the latest event or value of a field in a Wazuh dashboard using a t
    - In the advanced settings, you can further refine the display and behavior of your tag cloud.
 
 
-By following these steps, you can create a tag cloud in your Wazuh dashboard that highlights the most significant agents based on the latest events.
 
+## Configuring Graphs Using TSVB
+
+To configure graphs in your Wazuh dashboard using Time Series Visual Builder (TSVB), follow these steps:
+
+1. **Select the Index Pattern:**
+   - Choose the index pattern that matches your Wazuh alerts, for example, `wazuh-alerts-*`.
+
+2. **Configure Metrics:**
+   - Set the aggregation to `Count` to visualize the number of events.
+
+3. **Group by Filters:**
+   - Add filters to differentiate between different types of events. For example:
+     - Filter for rule.id:100003 (LOCK)
+     - Filter for rule.id:100004 (UNLOCK)
+     - Filter for rule.id:100007 (Suspensione)
+
+In this configuration:
+- The first panel groups by `rule.id:100003` (LOCK) and `rule.id:100004` (UNLOCK).
+- The second panel groups by `rule.id:100007` (Suspensione).
+
+By using these filters, you can create visualizations that show the count of different event types over time.
+
+To add a filter:
+1. Click on `Add` under the `Group by` section.
+2. Choose `Filters` as the aggregation.
+3. Define your filters using the `DQL` (Data Query Language) syntax.
+
+This allows for a clear and organized display of events, helping to quickly identify patterns and anomalies in your data.
